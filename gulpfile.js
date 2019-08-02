@@ -31,6 +31,11 @@ function images() {
 	return gulp.src('./src/img/**')
 		.pipe(gulp.dest('./build/img/'));
 }
+function covers() {
+	return gulp.src('./src/covers/**')
+		.pipe(gulp.dest('./build/covers/'));
+}
+
 
 function staticss() {
 	return gulp.src('./src/css/*.css')
@@ -86,21 +91,24 @@ function watch() {
 	gulp.watch("src/css/*.scss", gulp.series(styles));
 	gulp.watch("src/css/*.css", gulp.series(staticss));
 	gulp.watch("src/img/*", gulp.series(images));
+	gulp.watch("src/covers/*", gulp.series(covers));
 	gulp.watch("src/js/*", gulp.series(js));
 	gulp.watch("src/*.html", gulp.series(html));
 	gulp.watch("src/*.php", gulp.series(html));
 	gulp.watch("./build/*.php").on('change', browserSync.reload);
 	gulp.watch("./build/js/*.js").on('change', browserSync.reload);
 	gulp.watch("./build/img/**").on('change', browserSync.reload);
+	gulp.watch("./build/covers/**").on('change', browserSync.reload);
 	gulp.watch("./build/*.html").on('change', browserSync.reload);
 }
-var build = gulp.series(styles, staticss, images, html, js, myphp, bsync, watch);
+var build = gulp.series(styles, staticss, images, covers, html, js, myphp, bsync, watch);
 
 exports.myphp = myphp;
 exports.clean = clean;
 exports.html = html;
 exports.js = js;
 exports.styles = styles;
+exports.covers = covers;
 exports.images = images;
 exports.staticss = staticss;
 exports.watch = watch;

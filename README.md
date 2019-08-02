@@ -12,3 +12,7 @@ Fields:
 - Link to book
 - File size
 
+## TODO:
+
+- [ ] Ctrl+k focuses search
+- [ ] Generated covers
