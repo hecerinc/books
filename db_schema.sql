@@ -5,6 +5,7 @@ CREATE TABLE books (
 	authors VARCHAR(255),
 	filename text,
 	path text,
+	where_backup VARCHAR(255),
 	amazon_link TEXT,
 	coverimg VARCHAR(255),
 	created DATETIME,
