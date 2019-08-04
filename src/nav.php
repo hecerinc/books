@@ -11,7 +11,7 @@
 				</ul>
 			</li>
 			<li class="nav-link">
-				<a class="link-text" href="lists.php"><span class="ico lists"></span>Lists</a>
+				<a class="link-text" href="lists.php"><span class="ico lists"></span>Collections</a>
 			</li>
 		</ul>
 	</nav>
