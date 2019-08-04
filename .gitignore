@@ -1,4 +1,4 @@
-
+src/**/env.php
 build/
 src/covers/
 

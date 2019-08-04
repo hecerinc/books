@@ -94,7 +94,7 @@ function watch() {
 	gulp.watch("src/covers/*", gulp.series(covers));
 	gulp.watch("src/js/*", gulp.series(js));
 	gulp.watch("src/*.html", gulp.series(html));
-	gulp.watch("src/*.php", gulp.series(html));
+	gulp.watch("src/**/*.php", gulp.series(html));
 	gulp.watch("./build/*.php").on('change', browserSync.reload);
 	gulp.watch("./build/js/*.js").on('change', browserSync.reload);
 	gulp.watch("./build/img/**").on('change', browserSync.reload);
