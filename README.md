@@ -18,5 +18,5 @@ Fields:
 - [ ] Generated covers
 - [ ] Get & store file size upon uploading
 - [ ] Add grid and list icons
-- [ ] Homegenise layout
+- [x] Homegenise layout
 

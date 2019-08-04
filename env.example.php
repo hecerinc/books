@@ -5,6 +5,7 @@
  *
  * An example .env file to set the DB credentials and other sensitive info.
  * Copy this file or rename it to env.php to set up your variables.
+ * Make sure it is in the utils directory along with the autoload.php file
  */
 
 $variables = [
