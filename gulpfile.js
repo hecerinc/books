@@ -48,7 +48,7 @@ function js() {
 }
 
 function html() {
-	return gulp.src(['./src/*.html', './src/*.php'])
+	return gulp.src(['./src/*.html', './src/**/*.php'])
 		.pipe(gulp.dest('./build/'));
 }
 
