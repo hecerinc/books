@@ -250,9 +250,13 @@ ul {
 		.List {
 			// border: 3px dashed #ccc;
 			box-shadow: 2px 0 10px rgba(#000, .1);
+			transition: box-shadow 300ms;
 			border-radius: 20px;
 			text-align: center;
 			height: 200px;
+			&:hover {
+				box-shadow: 2px 0 20px rgba(#6E7F93, .25);
+			}
 			.middle {
 				padding: 20px;
 				width: 100%;

@@ -22,5 +22,6 @@ Fields:
 - [ ] What happens if you associate the same book(s) to a child category && its parent?
 - [ ] Edit/Delete books
 - [ ] Delete collections? What happens to the books?
+- [ ] _Currently Reading_ section
 - [x] Homegenise layout
 

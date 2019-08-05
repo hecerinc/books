@@ -5,7 +5,7 @@
 	<nav class="side-menu collapsed">
 		<ul>
 			<li class="nav-link">
-				<a class="link-text" href="/"><span class="ico book"></span>Books</a>
+				<a class="link-text" href="index.php"><span class="ico book"></span>Books</a>
 				<ul class="hidden">
 					<li class="nav-link"><a href="addnew.php">+ Add new</a></li>
 				</ul>
