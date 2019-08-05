@@ -17,7 +17,8 @@ $_GETALL = 'SELECT id, name, icon FROM collections WHERE parent_id IS NULL';
 $_GETONECAT = 'SELECT id, name, icon FROM collections WHERE parent_id = ?';
 $_GETCAT = 'SELECT id, name, icon, parent_id FROM collections WHERE id = ?';
 $_GETPARENTCAT = 'SELECT id, name FROM collections WHERE id = ?';
-$_GETBOOKS = 'SELECT * FROM books_collections JOIN books ON book_id = books.id WHERE collection_id = ?';
+$_GETDESCENDANTS = 'SELECT id FROM collections c JOIN collection_closure closure ON c.id = closure.descendant WHERE closure.ancestor = ?';
+$_GETBOOKS = 'SELECT * FROM books_collections JOIN books ON book_id = books.id WHERE collection_id IN';
 
 $query = $is_main ? $_GETALL : $_GETONECAT;
 
@@ -48,12 +49,31 @@ if(!$is_main) {
 		$ct_stmt->close();
 	}
 
+
+	// Get descendant categories (to retrieve all descendant books)
+	$dd_stmt = $db->conn->prepare($_GETDESCENDANTS);
+	$dd_stmt->bind_param('i', $cat['id']);
+	if(!$dd_stmt->execute()) {
+		$dd_stmt->close();
+		http_response_code(500);
+		die('Failed to retrieve descendants');
+	}
+
+	$result = $dd_stmt->get_result();
+	$dd_stmt->close();
+	$result = $result->fetch_all(MYSQLI_ASSOC);
+	$descendant_ids = array_column($result, 'id');
+	$clause = implode(',', array_fill(0, count($descendant_ids), '?'));
+
+	$_GETBOOKS .= " ($clause)";
+
+
 	// Get associated books
 	$book_stmt = $db->conn->prepare($_GETBOOKS);
-	$book_stmt->bind_param('i', $id);
+	$book_stmt->bind_param(str_repeat('i', count($descendant_ids)), ...$descendant_ids);
 	if(!$book_stmt->execute()) {
 		http_response_code(500);
-		die('Failed to retrieve books in this category.');
+		die('Failed to retrieve books in this category');
 	}
 	$book_result = $book_stmt->get_result();
 	$books = $book_result->fetch_all(MYSQLI_ASSOC);
@@ -122,7 +142,7 @@ if($collquery) {
 		<div class="row">
 			<?php if(empty($books)): ?>
 				<div class="col">
-					<p style="text-align: center; font-size: 14px;">No books yet. <a href="#">Add books to this list.</a></p>
+					<p style="text-align: center; font-size: 14px;">No books yet. <a href="editlist.php?id=<?= $id ?>">Add books to this list.</a></p>
 				</div>
 			<?php else: ?>
 				<?php require_once '_bookgrid.php' ?>
