@@ -18,5 +18,9 @@ Fields:
 - [ ] Generated covers
 - [ ] Get & store file size upon uploading
 - [ ] Add grid and list icons
+- [ ] Enable search
+- [ ] What happens if you associate the same book(s) to a child category && its parent?
+- [ ] Edit/Delete books
+- [ ] Delete collections? What happens to the books?
 - [x] Homegenise layout
 
