@@ -36,21 +36,23 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th style="width: 40%;">Name</th>
+					<th>Name</th>
 					<th>Author(s)</th>
 					<th>ISBN</th>
-					<th>Filename</th>
+					<th>File name</th>
 					<th>Size</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php foreach($books as $key => $book): ?>
+					<?php $url = 'file:///'.$book['path'] . '/' . $book['filename']; ?>
 					<tr>
-						<td><?= $key+1  ?></td>
+						<td style="min-width: 40px"><?= $key+1  ?></td>
 						<td><?= $book['name'] ?></td>
 						<td><?= $book['authors'] ?></td>
 						<td><?= $book['isbn'] ?></td>
-						<td><a href="#"><?= $book['filename'] ?></a></td>
+						<td style="max-width: 500px; min-width: 500px;"><a target="_blank" href="<?= $url ?>"><?= $book['filename'] ?></a></td>
+						<td></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

@@ -194,6 +194,11 @@ ul {
 
 .ListView {
 	display: none;
+	max-width: 100%;
+	table {
+		width: 100%;
+		overflow-wrap: break-word;
+	}
 }
 
 .new-book-form {
