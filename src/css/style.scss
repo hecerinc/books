@@ -165,6 +165,7 @@ ul {
 	margin-right: 5px;
 }
 .Book {
+	position: relative;
 	.coverimg img {
 		width: 140px;
 	}
@@ -190,6 +191,26 @@ ul {
 			font-size: 14px;
 		}
 	}
+	.editbtn {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		background-image: url(../img/edit.svg);
+		background-color: rgba(#fff, .8);
+		opacity: 0;
+		background-repeat: no-repeat;
+		background-position: center;
+		border-radius: 50%;
+		background-size: 15px;
+		box-shadow: 0 0 8px 0 rgba(#000, .3);
+		width: 30px;
+		height: 30px;
+		display: block;
+		transition: opacity 200ms;
+	}
+	&:hover .editbtn {
+		opacity: 1;
+	}
 }
 
 .ListView {
@@ -202,7 +223,6 @@ ul {
 }
 
 .new-book-form {
-	width: 40%;
 	margin-top: 20px;
 	.submit-btn {
 		background-color: #aaa;
@@ -225,10 +245,12 @@ ul {
 		}
 	}
 }
+.coverimg--bookform {
+	max-height: 450px;
+}
 .form-group {
 	input, select {
 		width: 100%;
-		// padding-left: 10px;
 		border: 0 none;
 		border-bottom: 1px solid #ccc;
 		margin-bottom: 30px;
@@ -253,7 +275,6 @@ ul {
 			text-decoration: none;
 		}
 		.List {
-			// border: 3px dashed #ccc;
 			box-shadow: 2px 0 10px rgba(#000, .1);
 			transition: box-shadow 300ms;
 			border-radius: 20px;

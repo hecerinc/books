@@ -9,6 +9,7 @@
 				<p><a href="<?= $url ?>" target="_blank" class="name"><?= $book['name'] ?></a></p>
 				<p><a href="<?= $url ?>" target="_blank" class="authors"><?= $book['authors'] ?></a></p>
 			</div>
+			<a href="editbook.php?id=<?= $book['id'] ?>" class="editbtn"></a>
 		</article>
 	</div>
 <?php endforeach; ?>
