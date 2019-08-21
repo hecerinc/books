@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-6">
 		<form action="process.php" class="new-book-form mt-5 form-group" method="post" enctype="multipart/form-data">
-			<?php if($is_edit): ?>
+			<?php if(isset($is_edit)): ?>
 				<input type="hidden" name="edit_id" value="<?= $book_id ?>">
 			<?php endif; ?>
 			<input autofocus placeholder="Title" name="title" id="title" type="text" value="<?= isset($is_edit) ? $book['name']: '' ?>" />
