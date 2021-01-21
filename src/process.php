@@ -84,7 +84,7 @@ echo "Uh-oh. Something went wrong. Failed to save new book";
  *
  * @desc Saves the book cover image
  * @param $image: $_FILE entry
- * @returns coverimg:str - the final file path for the image to be saved to the DB
+ * @return coverimg:str - the final file path for the image to be saved to the DB
  */
 function save_image($image) {
 	// Save image first

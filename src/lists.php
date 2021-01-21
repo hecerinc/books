@@ -106,7 +106,7 @@ if($collquery) {
 			<a href="editlist.php?id=<?= $cat['id'] ?>" class="ml-3" style="font-size: 12px; position: relative; top: -5px">Edit</a>
 		<?php endif; ?>
 	</div>
-	<div class="col-2 d-flex justify-content-end">
+	<div class="col-3 d-flex justify-content-end">
 		<a href="addlist.php" class="add-new-btn pr-5" style="width: 100%; text-align: right;">+ Add new collection</a>
 	</div>
 </div>

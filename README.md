@@ -3,6 +3,13 @@
 This is an attempt to catalog all the electronic books (PDFs & ebooks) I have and make a small database.
 
 
+## Run
+
+```
+$ gulp
+```
+
+
 Fields:
 
 - Name

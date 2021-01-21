@@ -1,4 +1,9 @@
 <?php
+	session_start();
+	$is_expanded = false;
+	if(isset($_SESSION['is_nav_expanded'])) {
+		$is_expanded = $_SESSION['is_nav_expanded'];
+	}
 	require_once './utils/ViewBlock.php';
 	$vblock = new ViewBlock();
 ?>
@@ -15,5 +20,5 @@
 </head>
 <body>
 	<?php require_once 'nav.php' ?>
-	<main class="main-content fw">
+	<main class="main-content <?= $is_expanded ? '' : 'fw' ?>">
 		<div class="container-fluid mt-5 <?= isset($bodyClass) ? $bodyClass : '' ?>">
