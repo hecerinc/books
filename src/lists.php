@@ -114,8 +114,8 @@ if($collquery) {
 	<a href="lists.php?id=<?= $parent_cat['id'] ?>">&laquo; <?= $parent_cat['name'] ?></a>
 	<section class="tabContainer mt-5">
 		<ul class="inline">
-			<li><a class="tab-toggle <?= empty($lists) ? '': 'active' ?>" href="#">Collections</a></li>
-			<li><a class="tab-toggle <?= empty($lists) ? 'active': '' ?>" href="#">Books</a></li>
+			<li><a class="tab-toggle <?= empty($lists) ? '': 'active' ?>" href="#">Collections (<?= count($lists) ?>)</a></li>
+			<li><a class="tab-toggle <?= empty($lists) ? 'active': '' ?>" href="#">Books (<?= count($books) ?>)</a></li>
 		</ul>
 	</section>
 <?php endif; ?>

@@ -1,8 +1,14 @@
-body{
+body {
 	font-family: 'Segoe UI', sans-serif;
 	color: #222;
 }
-h1, h2, h3, h4, h5, h6, strong {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
 	font-weight: 600;
 }
 table {
@@ -20,16 +26,16 @@ table {
 	}
 
 	tr {
-		th:first-child{
+		th:first-child {
 			text-align: center;
 		}
-		td:first-child{
+		td:first-child {
 			text-align: center;
 		}
-		td:nth-child(2){
+		td:nth-child(2) {
 			padding-right: 10px;
 		}
-		&:hover td{
+		&:hover td {
 			background-color: #efefef;
 		}
 	}
@@ -37,7 +43,7 @@ table {
 .hidden {
 	display: none !important;
 }
-a{
+a {
 	text-decoration-style: dotted;
 	color: #1eaedb;
 }
@@ -95,6 +101,7 @@ ul {
 	}
 	.ico {
 		background-size: 22px;
+		background-repeat: no-repeat;
 		width: 22px;
 		height: 22px;
 		// display: inline-block;
@@ -127,7 +134,9 @@ ul {
 .control-row {
 	margin-top: 20px;
 	font-size: 14px;
-	.book-count {color: #c7c9cb;}
+	.book-count {
+		color: #232629;
+	}
 }
 .view-btns {
 	padding-right: 30px;
@@ -146,11 +155,11 @@ ul {
 }
 .add-new-btn {
 	// border: 1px solid #aaa;
-	color: #0290EA;
+	color: #0290ea;
 	transition: color 200ms;
 	&:hover {
 		text-decoration: none;
-		color: darken(#0290EA, 15%);
+		color: darken(#0290ea, 15%);
 	}
 	border-radius: 30px;
 	text-align: center;
@@ -182,7 +191,10 @@ ul {
 		overflow: hidden;
 	}
 	.info {
-		p {margin-bottom: 0; font-family: Georgia, serif;}
+		p {
+			margin-bottom: 0;
+			font-family: Georgia, serif;
+		}
 		a:hover {
 			text-decoration: none;
 		}
@@ -203,13 +215,13 @@ ul {
 		top: 5px;
 		right: 5px;
 		background-image: url(../img/edit.svg);
-		background-color: rgba(#fff, .8);
+		background-color: rgba(#fff, 0.8);
 		opacity: 0;
 		background-repeat: no-repeat;
 		background-position: center;
 		border-radius: 50%;
 		background-size: 15px;
-		box-shadow: 0 0 8px 0 rgba(#000, .3);
+		box-shadow: 0 0 8px 0 rgba(#000, 0.3);
 		width: 30px;
 		height: 30px;
 		display: block;
@@ -256,7 +268,8 @@ ul {
 	max-height: 450px;
 }
 .form-group {
-	input, select {
+	input,
+	select {
 		width: 100%;
 		border: 0 none;
 		border-bottom: 1px solid #ccc;
@@ -275,20 +288,19 @@ ul {
 	}
 }
 
-
 .ListDB {
 	.ListGrid {
 		a:hover {
 			text-decoration: none;
 		}
 		.List {
-			box-shadow: 2px 0 10px rgba(#000, .1);
+			box-shadow: 2px 0 10px rgba(#000, 0.1);
 			transition: box-shadow 300ms;
 			border-radius: 20px;
 			text-align: center;
 			height: 200px;
 			&:hover {
-				box-shadow: 2px 0 20px rgba(#6E7F93, .25);
+				box-shadow: 2px 0 20px rgba(#6e7f93, 0.25);
 			}
 			.middle {
 				padding: 20px;
@@ -299,9 +311,10 @@ ul {
 				text-align: center;
 			}
 			.ico {
+				background-size: 60px;
+				background-repeat: no-repeat;
 				width: 60px;
 				height: 60px;
-				background-size: 60px;
 				margin: 0 auto;
 				display: block;
 			}
@@ -328,8 +341,8 @@ ul {
 			border-bottom: 2px solid #aaa;
 		}
 		&.active {
-			color: #616C76;
-			border-bottom: 2px solid #616C76;
+			color: #616c76;
+			border-bottom: 2px solid #616c76;
 			font-weight: 600;
 		}
 	}

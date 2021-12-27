@@ -6,7 +6,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const notify = require('gulp-notify');
 // const plumber = require('gulp-plumber');
 const php = require('gulp-connect-php');
-const browserSync = require('browser-sync');
 const del = require('del');
 
 function myphp(cb) {

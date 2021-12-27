@@ -7,14 +7,23 @@
 		die('Failed to connect to DB.');
 	}
 
-	$result = $conn->conn->query('SELECT * FROM books ORDER by name');
+	$is_search_page = false;
+	$query = 'SELECT * FROM books ORDER by name';
+	$stmt = $conn->conn->stmt_init();
+	$stmt->prepare($query);
+	require_once 'search.php';
+
+	$stmt->execute();
+	$result = $stmt->get_result();
 ?>
 <div class="row">
 	<div class="col-1">
 		<h1>Books</h1>
 	</div>
 	<div class="col-9 pl-5">
-		<input class="search-input pl-2" type="search" name="q" id="search" placeholder="Search&hellip;">
+		<form id="searchForm" action="index.php" method="GET">
+			<input class="search-input pl-2" type="search" name="q" id="search" placeholder="Search&hellip;">
+		</form>
 	</div>
 	<div class="col-2">
 		<a href="addnew.php" class="add-new-btn">+ Add new</a>
@@ -23,7 +32,12 @@
 <?php if($result): $books = $result->fetch_all(MYSQLI_ASSOC); endif; ?>
 
 <div class="d-flex justify-content-between control-row">
-	<p class="book-count"><?= isset($books) ? count($books) : 'NA' ?> items</p>
+	<p class="book-count">
+		<?php if($is_search_page): ?>
+			<span style="color: #6a737c">Results for '<?= htmlspecialchars($search_query) ?>' &nbsp; &nbsp;</span>
+		<?php endif; ?>
+		<?= isset($books) ? count($books) : 'NA' ?> items
+	</p>
 	<ul class="inline view-btns">
 		<li><a data-view="list" href="#">List view</a></li>
 		<li><a data-view="grid" href="#">Grid view</a></li>
@@ -78,6 +92,11 @@
 		else {
 			$('.ListView').show();
 			$('.GridView').hide();
+		}
+	});
+	$('#search').on('keydown', (e) => {
+		if(e.which === 13) { // Enter key
+			$('#searchForm').submit();
 		}
 	});
 </script>
