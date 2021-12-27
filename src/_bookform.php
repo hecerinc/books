@@ -112,7 +112,7 @@ function print_cat_options($cats, $depth = 0) {
 				value="<?= isset($is_edit) ?  $book['where_backup'] : '' ?>"
 			/>
 			<input
-				placeholder="Local path"
+				placeholder="Full local path (e.g. C:/Users/Hector/book.pdf)"
 				name="path"
 				id="path"
 				type="text"

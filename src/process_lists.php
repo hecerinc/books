@@ -17,7 +17,8 @@ $_INSERT_WITH_PARENT = "INSERT INTO collections(name, icon, parent_id) VALUES(?,
 $_DELETEASSOC = 'DELETE FROM books_collections WHERE collection_id = ?';
 
 // Check what the form sent and store them
-if(isset($_POST['books'])) {
+$has_associated_books = isset($_POST['books']);
+if($has_associated_books) {
 	$books = $_POST['books'];
 }
 $name = $_POST['name'];
@@ -62,15 +63,17 @@ $collection_id = $stmt->insert_id;
 $stmt->close();
 
 
-// Associate books
-$stmt = generate_book_stmt($books, $collection_id);
+if($has_associated_books) {
+	// Associate books
+	$stmt = generate_book_stmt($books, $collection_id);
 
-if(!$stmt->execute()) {
+	if(!$stmt->execute()) {
+		$stmt->close();
+		http_response_code(500);
+		die('Something went wrong when saving the list');
+	}
 	$stmt->close();
-	http_response_code(500);
-	die('Something went wrong when saving the list');
 }
-$stmt->close();
 
 session_start();
 $_SESSION['listsave_success'] = 'success';
